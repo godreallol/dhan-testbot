@@ -1,5 +1,8 @@
 import pyotp
 from dhanhq import dhanhq
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 
 # YOUR VALUES
 CLIENT_ID = "YOUR_CLIENT_ID"
@@ -30,3 +33,9 @@ response = dhan.place_order(
 )
 
 print(response)
+
+driver = webdriver.Chrome(
+    service=Service(ChromeDriverManager().install())
+)
+
+driver.get("https://web.dhan.co")
